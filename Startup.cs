@@ -42,7 +42,7 @@ namespace Efficacy.Api
                 c.SwaggerDoc("v1", new Info
                 {
                     Version = "v1",
-                    Title = "SERVICOS DA MINHA API"
+                    Title = "Beer_Here_API"
                     
                 });
 
