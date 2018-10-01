@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Efficacy.Api</name>
+    </assembly>
+    <members>
+        <member name="T:Efficacy.Api.Controllers.PessoaController">
+            <summary>
+            Para trabalhar com os registros de Pessoas
+            </summary>
+        </member>
+        <member name="M:Efficacy.Api.Controllers.PessoaController.ListarPessoas(Efficacy.Api.Models.Request.ListarPessoasRequest)">
+            <summary>
+            Buscar Pessoas: Para Pessoas no Sistema.
+            </summary>
+            <param name="queryOptions">Filtros de Pesquisa</param>
+            <returns>Retorna o Resultado da Pesquisa</returns>
+        </member>
+        <member name="M:Efficacy.Api.Controllers.PessoaController.GravarPessoa(Efficacy.Api.Models.Request.GravarPessoaRequest)">
+            <summary>
+            Gravar Pessoa: Para gravar uma Pessoa.
+            </summary>
+            <param name="gravarPessoaRequest">Dados necessários para a gravação do Registro.</param>
+            <returns>Retorna o Resultado do Processamento e o ID do registro gravado. OBS.: O Processamento é executado com sucesso quando o Sucesso for igual a True.</returns>
+        </member>
+        <member name="M:Efficacy.Api.Controllers.PessoaController.ExcluirPessoa(System.Int32)">
+            <summary>
+            Excluir Pessoa: Para excluir uma Pessoa.
+            </summary>
+            <param name="ID">ID do registro a ser excluido.</param>
+            <returns>Retorna o Resultado do Processamento. OBS.: O Processamento é executado com sucesso quando o Sucesso for igual a True.</returns>
+        </member>
+    </members>
+</doc>
