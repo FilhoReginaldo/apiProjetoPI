@@ -129,10 +129,13 @@ namespace Efficacy.Api.Business
                 {
                     pessoa.Nome = request.Nome;
                     pessoa.DataNascimento = request.DataNascimento;
+                    pessoa.Cpf_Cnpj = request.Cpf_Cnpj;
                     pessoa.Email = request.Email;
                     pessoa.Senha = request.Senha;
                     pessoa.Telefone = request.Telefone;
+                    pessoa.Celular = request.Celular;
                     pessoa.Senha = request.Senha;
+                    pessoa.DataNascimento = request.DataNascimento;
                     pessoa.DataAlteracao = DateTime.Now;
 
                     data.Update(pessoa);
