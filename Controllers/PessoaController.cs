@@ -1,5 +1,5 @@
 using Efficacy.Api.Business;
-using Efficacy.Api.DataAccess.Entities;
+using Efficacy.Api.DataAccess;
 using Efficacy.Api.Models.Request;
 using Efficacy.Api.Models.Response;
 using Microsoft.AspNetCore.Mvc;
@@ -12,8 +12,8 @@ namespace Efficacy.Api.Controllers
     /// </summary>
     public class PessoaController: Controller
     {
-        DbContextOptions<APIContext> contextOptions = null;
-        public PessoaController(DbContextOptions<APIContext> options)
+        DbContextOptions<ProjetoAPIContext> contextOptions = null;
+        public PessoaController(DbContextOptions<ProjetoAPIContext> options)
         {
             contextOptions = options;
         }  

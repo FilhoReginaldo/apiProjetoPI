@@ -4,17 +4,17 @@ using Efficacy.Api.Models.Request;
 using Efficacy.Api.Models.Response;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Efficacy.Api.DataAccess.Entities;
+using Efficacy.Api.DataAccess;
 
 namespace Efficacy.Api.Business
 {
     public class PessoaBusiness: IDisposable
     {
-        private DataAccess.Entities.APIContext data = null;
+        private DataAccess.ProjetoAPIContext data = null;
 
-        public PessoaBusiness(DbContextOptions<APIContext> options)
+        public PessoaBusiness(DbContextOptions<ProjetoAPIContext> options)
         {
-            data = new DataAccess.Entities.APIContext(options);
+            data = new DataAccess.ProjetoAPIContext(options);
         }
 
         public ListarPessoasResponse ListarPessoas(ListarPessoasRequest request)
@@ -27,10 +27,17 @@ namespace Efficacy.Api.Business
                 var resultado = from pess in data.PESSOA
                                 select new PessoaResponse()
                                 {
-                                    Nome = pess.Nome,
                                     ID = pess.ID,
-                                    DataCriacao = pess.DataCriacao,
+                                    TipoPessoaID = pess.TipoPessoaID,
+                                    RazaoSocial = pess.RazaoSocial,
+                                    Nome = pess.Nome,
+                                    Email = pess.Email,
+                                    Senha = pess.Senha,
+                                    Cpf_Cnpj = pess.Cpf_Cnpj,
+                                    Telefone = pess.Telefone,
+                                    Celular = pess.Celular,
                                     DataNascimento = pess.DataNascimento,
+                                    DataCriacao = pess.DataCriacao,
                                     
                                     Enderecos = (from end in data.PESSOA_ENDERECO
                                                  where end.PessoaID == pess.ID
@@ -38,12 +45,13 @@ namespace Efficacy.Api.Business
                                                  {
                                                     ID = end.ID,
                                                     PessoaID = end.PessoaID,
-                                                    Logradouro = end.Logradouro,
-                                                    Bairro = end.Bairro,
+                                                    EnderecoCobranca = end.EnderecoCobranca,
                                                     CEP = end.CEP,
+                                                    UF = end.UF,
                                                     Cidade = end.Cidade,
-                                                    UF = end.UF       
-                                                
+                                                    Bairro = end.Bairro,   
+                                                    Logradouro = end.Logradouro,
+                                                    Numero = end.Numero
                                                  }).ToList()        
                                
                                 };
@@ -59,6 +67,11 @@ namespace Efficacy.Api.Business
                     if( string.IsNullOrEmpty(request.Nome) == false ) 
                     {
                         resultado = resultado.Where( whr => request.Nome.Contains(whr.Nome));
+                    }
+
+                    if( string.IsNullOrEmpty(request.Email)==false)
+                    {
+                        resultado = resultado.Where(whr => whr.Email == request.Email);
                     }
 
                 }
@@ -95,9 +108,17 @@ namespace Efficacy.Api.Business
                 {
                     pessoa = new PESSOA()
                     {
+                        TipoPessoaID = request.TipoPessoaID,
+                        RazaoSocial = request.RazaoSocial,
                         Nome = request.Nome,
+                        Email = request.Email,
+                        Senha = request.Senha,
+                        Cpf_Cnpj = request.Cpf_Cnpj,
+                        Telefone = request.Telefone,
+                        Celular = request.Celular,
                         DataNascimento = request.DataNascimento,
-                        DataCriacao = DateTime.Now
+                        DataCriacao = DateTime.Now,
+                        DataAlteracao = DateTime.Now
                     };
 
                     data.Add(pessoa);
@@ -108,6 +129,11 @@ namespace Efficacy.Api.Business
                 {
                     pessoa.Nome = request.Nome;
                     pessoa.DataNascimento = request.DataNascimento;
+                    pessoa.Email = request.Email;
+                    pessoa.Senha = request.Senha;
+                    pessoa.Telefone = request.Telefone;
+                    pessoa.Senha = request.Senha;
+                    pessoa.DataAlteracao = DateTime.Now;
 
                     data.Update(pessoa);
                     data.SaveChanges();
@@ -125,7 +151,9 @@ namespace Efficacy.Api.Business
                             endereco = new PESSOA_ENDERECO()
                             {
                                 PessoaID = pessoa.ID,
+                                EnderecoCobranca = item.EnderecoCobranca,
                                 Logradouro = item.Logradouro,
+                                Numero = item.Numero,
                                 Bairro = item.Bairro,
                                 CEP = item.CEP,
                                 Cidade = item.Cidade,
@@ -139,6 +167,8 @@ namespace Efficacy.Api.Business
                         else
                         {
                             endereco.Logradouro = item.Logradouro;
+                            endereco.EnderecoCobranca = item.EnderecoCobranca;
+                            endereco.Numero = item.Numero;
                             endereco.CEP = item.CEP;
                             endereco.Bairro = item.Bairro;
                             endereco.Cidade = item.Cidade;

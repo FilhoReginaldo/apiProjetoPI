@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Efficacy.Api.DataAccess.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -14,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
+using Efficacy.Api.DataAccess;
 
 namespace Efficacy.Api
 {
@@ -33,7 +33,7 @@ namespace Efficacy.Api
 
 
             //Injeção de Dependencia para a conexão com o banco de dados.
-            services.AddDbContext<APIContext>(options => options.UseSqlServer("Server=(local);Database=ProjetoAPI;User Id=sa;password=suporte;"));
+            services.AddDbContext<ProjetoAPIContext>(options => options.UseSqlServer("Server=(local);Database=ProjetoAPI;User Id=sa;password=suporte;"));
 
 
             //Implementação de Documentação
@@ -42,7 +42,7 @@ namespace Efficacy.Api
                 c.SwaggerDoc("v1", new Info
                 {
                     Version = "v1",
-                    Title = "Beer_Here_API"
+                    Title = "BeerHereAPI"
                     
                 });
 

@@ -4,6 +4,8 @@ namespace Efficacy.Api.Models
     {
         public int ID {get; set;}
         public int PessoaID {get; set;}
+        public int EnderecoCobranca {get;set;}
+        public string Numero {get;set;}
         public string Logradouro {get; set;}
         public string CEP {get; set;}
         public string Bairro {get; set;}
