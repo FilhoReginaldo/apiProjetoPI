@@ -4,6 +4,19 @@
         <name>Efficacy.Api</name>
     </assembly>
     <members>
+        <member name="T:Efficacy.Api.Controllers.LoginController">
+            <summary>
+            Para validar usuário
+            </summary>
+        </member>
+        <member name="M:Efficacy.Api.Controllers.LoginController.validarlogin(Efficacy.Api.Models.Request.LoginRequest)">
+            <summary>
+            Realizar Login.
+            </summary>
+            <param name="Email">Email do Usuário</param>
+            <param name="Senha">Senha do Usuário</param>
+            <returns>Retorna o Resultado do Processamento. OBS.: O Processamento é executado com sucesso quando o Sucesso for igual a True.</returns>
+        </member>
         <member name="T:Efficacy.Api.Controllers.PessoaController">
             <summary>
             Para trabalhar com os registros de Pessoas
@@ -26,6 +39,13 @@
         <member name="M:Efficacy.Api.Controllers.PessoaController.ExcluirPessoa(System.Int32)">
             <summary>
             Excluir Pessoa: Para excluir uma Pessoa.
+            </summary>
+            <param name="ID">ID do registro a ser excluido.</param>
+            <returns>Retorna o Resultado do Processamento. OBS.: O Processamento é executado com sucesso quando o Sucesso for igual a True.</returns>
+        </member>
+        <member name="M:Efficacy.Api.Controllers.PessoaController.ExcluirEndereco(System.Int32)">
+            <summary>
+            Excluir Pessoa Endereço: Para excluir o endereco de uma pessoa.
             </summary>
             <param name="ID">ID do registro a ser excluido.</param>
             <returns>Retorna o Resultado do Processamento. OBS.: O Processamento é executado com sucesso quando o Sucesso for igual a True.</returns>

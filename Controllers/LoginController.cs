@@ -1,5 +1,5 @@
 using Efficacy.Api.Business;
-using Efficacy.Api.DataAccess;
+using Efficacy.Api.DataAcess.Entities;
 using Efficacy.Api.Models.Request;
 using Efficacy.Api.Models.Response;
 using Microsoft.AspNetCore.Mvc;

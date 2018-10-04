@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Efficacy.Api.DataAccess
+namespace Efficacy.Api.DataAcess.Entities
 {
     public partial class PESSOA
     {
         public PESSOA()
         {
+            PESSOA_CERVEJA = new HashSet<PESSOA_CERVEJA>();
             PESSOA_ENDERECO = new HashSet<PESSOA_ENDERECO>();
         }
 
@@ -23,6 +24,7 @@ namespace Efficacy.Api.DataAccess
         public DateTime DataCriacao { get; set; }
         public DateTime? DataAlteracao { get; set; }
 
+        public ICollection<PESSOA_CERVEJA> PESSOA_CERVEJA { get; set; }
         public ICollection<PESSOA_ENDERECO> PESSOA_ENDERECO { get; set; }
     }
 }

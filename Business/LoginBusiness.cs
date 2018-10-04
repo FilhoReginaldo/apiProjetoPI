@@ -4,17 +4,17 @@ using Efficacy.Api.Models.Request;
 using Efficacy.Api.Models.Response;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Efficacy.Api.DataAccess;
+using Efficacy.Api.DataAcess.Entities;
 
 namespace Efficacy.Api.Business
 {
     public class LoginBusiness: IDisposable
     {
-        private DataAccess.ProjetoAPIContext data = null;
+        private DataAcess.Entities.ProjetoAPIContext data = null;
 
         public LoginBusiness(DbContextOptions<ProjetoAPIContext> options)
         {
-            data = new DataAccess.ProjetoAPIContext(options);
+            data = new DataAcess.Entities.ProjetoAPIContext(options);
         }
 
         public LoginResponse ValidarLogin(LoginRequest request)

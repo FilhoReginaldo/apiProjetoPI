@@ -4,17 +4,17 @@ using Efficacy.Api.Models.Request;
 using Efficacy.Api.Models.Response;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
-using Efficacy.Api.DataAccess;
+using Efficacy.Api.DataAcess.Entities;
 
 namespace Efficacy.Api.Business
 {
     public class PessoaBusiness: IDisposable
     {
-        private DataAccess.ProjetoAPIContext data = null;
+        private DataAcess.Entities.ProjetoAPIContext data = null;
 
         public PessoaBusiness(DbContextOptions<ProjetoAPIContext> options)
         {
-            data = new DataAccess.ProjetoAPIContext(options);
+            data = new DataAcess.Entities.ProjetoAPIContext(options);
         }
 
         public ListarPessoasResponse ListarPessoas(ListarPessoasRequest request)
@@ -75,7 +75,10 @@ namespace Efficacy.Api.Business
                     }
 
                 }
-
+                else
+                {
+                    throw new Exception("O Objeto não foi enviado corretamente!");
+                }
 
                 response.Pessoas = resultado.ToList();
                 response.Sucesso = true;

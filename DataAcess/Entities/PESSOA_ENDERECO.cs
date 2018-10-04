@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Efficacy.Api.DataAccess
+namespace Efficacy.Api.DataAcess.Entities
 {
     public partial class PESSOA_ENDERECO
     {
