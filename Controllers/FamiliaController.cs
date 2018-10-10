@@ -46,5 +46,20 @@ namespace Efficacy.Api.Controllers
                 return business.GravarFamilia(request);
             }
         }
+
+        /// <summary>
+        /// Excluir Familia: Para excluir uma Familia.
+        /// </summary>
+        /// <param name="ID">ID do registro a ser excluido.</param>
+        /// <returns>Retorna o Resultado do Processamento. OBS.: O Processamento é executado com sucesso quando o Sucesso for igual a True.</returns>
+        [HttpDelete]
+        [Route("familia/excluir{ID}")]
+        public BaseResponse ExcluirFamilia(int ID)
+        {
+            using(FamiliaBusiness business = new FamiliaBusiness(contextOptions))
+            {
+                return business.ExcluirFamilia(ID);
+            }
+        }
     }
 }

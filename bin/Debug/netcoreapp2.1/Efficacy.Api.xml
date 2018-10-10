@@ -27,6 +27,13 @@
             <param name="gravarFamiliaRequest">Dados necessários para a gravação do Registro.</param>
             <returns>Retorna o Resultado do Processamento e o ID do registro gravado. OBS.: O Processamento é executado com sucesso quando o Sucesso for igual a True.</returns>
         </member>
+        <member name="M:Efficacy.Api.Controllers.FamiliaController.ExcluirFamilia(System.Int32)">
+            <summary>
+            Excluir Familia: Para excluir uma Familia.
+            </summary>
+            <param name="ID">ID do registro a ser excluido.</param>
+            <returns>Retorna o Resultado do Processamento. OBS.: O Processamento é executado com sucesso quando o Sucesso for igual a True.</returns>
+        </member>
         <member name="T:Efficacy.Api.Controllers.LoginController">
             <summary>
             Para validar usuário

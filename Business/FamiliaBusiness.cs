@@ -109,6 +109,39 @@ namespace Efficacy.Api.Business
             return response;
         }
 
+        public BaseResponse ExcluirFamilia (int ID)
+        {
+
+            BaseResponse response = new BaseResponse();
+
+            try
+            {
+                var familia = data.FAMILIA.Where(whr => whr.ID == ID).FirstOrDefault();
+
+                if(familia == null)
+                {
+                    throw new Exception ("A Familia informada não foi encontrada.");
+
+                }
+
+                data.Remove(familia);
+                data.SaveChanges();
+
+                response.Sucesso = true;
+                response.Mensagem = "Registro Excluido com Sucesso!";
+
+            }
+            catch(Exception err)
+            {
+                response.Sucesso = false;
+                response.Mensagem = err.Message;
+
+            }
+
+            return response;
+
+        }
+
         public void Dispose()
         {
             data.Dispose();
