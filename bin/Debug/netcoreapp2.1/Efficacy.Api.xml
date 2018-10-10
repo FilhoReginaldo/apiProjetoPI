@@ -4,6 +4,29 @@
         <name>Efficacy.Api</name>
     </assembly>
     <members>
+        <member name="T:Efficacy.Api.Controllers.CervejaController">
+            <summary>
+            Para trabalhar com os registros de Cerveja
+            </summary>
+        </member>
+        <member name="F:Efficacy.Api.Controllers.FamiliaController.contextOptions">
+            <summary>
+            Para trabalhar com os registros de Familia
+            </summary>
+        </member>
+        <member name="M:Efficacy.Api.Controllers.FamiliaController.ListarPessoas(Efficacy.Api.Models.Request.ListaFamiliaRequest)">
+            <summary>
+            Buscar Familia Cerveja: Para Pessoas no Sistema.
+            </summary>
+            <returns>Retorna o Resultado da Pesquisa</returns>
+        </member>
+        <member name="M:Efficacy.Api.Controllers.FamiliaController.GravarFamilia(Efficacy.Api.Models.Request.GravarFamiliaRequest)">
+            <summary>
+            Gravar Pessoa: Para gravar uma Familia.
+            </summary>
+            <param name="gravarFamiliaRequest">Dados necessários para a gravação do Registro.</param>
+            <returns>Retorna o Resultado do Processamento e o ID do registro gravado. OBS.: O Processamento é executado com sucesso quando o Sucesso for igual a True.</returns>
+        </member>
         <member name="T:Efficacy.Api.Controllers.LoginController">
             <summary>
             Para validar usuário
