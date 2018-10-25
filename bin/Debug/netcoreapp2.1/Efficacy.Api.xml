@@ -80,5 +80,24 @@
             <param name="ID">ID do registro a ser excluido.</param>
             <returns>Retorna o Resultado do Processamento. OBS.: O Processamento é executado com sucesso quando o Sucesso for igual a True.</returns>
         </member>
+        <member name="T:Efficacy.Api.Controllers.TipoController">
+            <summary>
+            Para trabalhar com os registros de Tipo
+            </summary>
+        </member>
+        <member name="M:Efficacy.Api.Controllers.TipoController.Listartipos(Efficacy.Api.Models.Request.ListarTipoRequest)">
+            <summary>
+            Buscar Pessoas: Para Pessoas no Sistema.
+            </summary>
+            <param name="queryOptions">Filtros de Pesquisa</param>
+            <returns>Retorna o Resultado da Pesquisa</returns>
+        </member>
+        <member name="M:Efficacy.Api.Controllers.TipoController.gravarTipo(Efficacy.Api.Models.Request.GravarTipoRequest)">
+            <summary>
+            Gravar Pessoa: Para gravar uma Pessoa.
+            </summary>
+            <param name="GravarTipoRequest">Dados necessários para a gravação do Registro.</param>
+            <returns>Retorna o Resultado do Processamento e o ID do registro gravado. OBS.: O Processamento é executado com sucesso quando o Sucesso for igual a True.</returns>
+        </member>
     </members>
 </doc>
